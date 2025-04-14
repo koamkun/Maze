@@ -99,7 +99,14 @@ class Maze {
         return solveDFS(1, 1);
     }
 
-
+    public void print() {
+        for (char[] row : grid) {
+            for (char cell : row) {
+                System.out.print(cell);
+            }
+            System.out.println();
+        }
+    }
 
 }
 
