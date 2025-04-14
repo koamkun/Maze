@@ -27,7 +27,14 @@ class Maze {
         this.visited = new boolean[this.rows][this.cols];
     }
 
-
+    private void shuffle(int[] array) {
+        for (int i = array.length - 1; i > 0; i--) {
+            int index = rand.nextInt(i + 1);
+            int temp = array[i];
+            array[i] = array[index];
+            array[index] = temp;
+        }
+    }
 
     public void generate() {
         for (int r = 0; r < rows; r++)
@@ -39,14 +46,7 @@ class Maze {
         grid[rows - 2][cols - 2] = PATH;
     }
 
-    private void shuffle(int[] array) {
-        for (int i = array.length - 1; i > 0; i--) {
-            int index = rand.nextInt(i + 1);
-            int temp = array[i];
-            array[i] = array[index];
-            array[index] = temp;
-        }
-    }
+
 
     private boolean isInBounds(int r, int c) {
         return r > 0 && r < rows - 1 && c > 0 && c < cols - 1;
